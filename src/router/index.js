@@ -4,13 +4,25 @@ const routes = [
   {
     path: '/',
     name: 'tasks',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Tasks.vue')
+    component: () => import('../views/Tasks.vue')
   },
+  {
+    path: '/task/:id',
+    name: 'task',
+    component: () => import('../views/Task')
+  },
+  {
+    path: '/new',
+    name: 'new',
+    component: () => import('../views/New')
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  linkExactActiveClass: 'active',
+  linkActiveClass: 'active'
 })
 
 export default router
